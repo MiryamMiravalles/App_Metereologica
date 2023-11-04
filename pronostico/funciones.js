@@ -2,5 +2,5 @@
 "use strict";
 
 export function redirigir() {
-  window.location.href = 'pronostico.html';
+  window.location.href = "pronostico.html";
 }
