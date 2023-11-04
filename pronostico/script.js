@@ -1,6 +1,5 @@
 "use strict";
 
-import { redirigir } from "./funciones.js";
 const titulo = document.title;
 if (titulo === "Mi Meteo") {
   document

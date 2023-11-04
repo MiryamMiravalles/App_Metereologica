@@ -1,6 +1,7 @@
 // funciones.js
 "use strict";
 
-export function redirigir() {
+const boton = document.querySelector("#obtenerUbicacion");
+boton.addEventListener("click", function(){
   window.location.href = "pronostico.html";
-}
+})
