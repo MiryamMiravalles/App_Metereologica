@@ -78,3 +78,31 @@ function mostrarPronosticoLluviaPorHoras(data) {
   }
 }
 
+// Para que recuerde la configuración de los efectos del botón
+// Obtener el botón y el cursor del elemento del DOM
+const obtenerUbicacion = document.getElementById('obtenerUbicacion');
+const cursorSetting = localStorage.getItem('cursorSetting');
+
+// Función para cambiar el cursor y guardar la configuración
+function changeCursorSetting() {
+  if (cursorSetting === 'pointer') {
+    obtenerUbicacion.style.cursor = 'pointer';
+  } else {
+    obtenerUbicacion.style.cursor = 'default'; // Valor predeterminado si no se ha guardado nada
+  }
+}
+
+// Evento para cambiar el cursor cuando el mouse se coloca sobre el botón
+obtenerUbicacion.addEventListener('mouseover', () => {
+  if (cursorSetting !== 'pointer') {
+    obtenerUbicacion.style.cursor = 'pointer';
+  }
+});
+
+// Evento para guardar la configuración del cursor en el localStorage cuando el mouse se aleja del botón
+obtenerUbicacion.addEventListener('mouseout', () => {
+  localStorage.setItem('cursorSetting', obtenerUbicacion.style.cursor);
+});
+
+// Cambiar el cursor en función de la configuración guardada
+changeCursorSetting();

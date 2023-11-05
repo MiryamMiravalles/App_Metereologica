@@ -64,6 +64,16 @@ body {
   margin-top: 10px;
 } 
 
+#obtenerUbicacion {
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#obtenerUbicacion:hover {
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.523);
+  transform: translateY(-5px);
+}
+
 .imgsol {
   width: 40vw;
   height: 20vh;
@@ -82,17 +92,6 @@ body {
   margin-top: 20px;
   margin-right: 20px;
 }
-/* }; */
-
-/* Escritorio pequeño / tablet 
-@media only screen and (min-width: 768px) and (max-width: 991px){
-
-} */
-
-/* Tablets y phablets 
-@media only screen and (min-width: 576px) and (max-width: 767px){
-
-} */
 
 /* Móviles */
 @media only screen and (min-width: 400px) {
@@ -138,7 +137,6 @@ body {
     margin-top: 20vh;
   }
 
-
   .obtenerUbicacion {
     display: block;
     width: 25vw;
@@ -150,5 +148,16 @@ body {
     border: 2px black solid;
     min-width: 300px;
   }
+
+  #obtenerUbicacion {
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  #obtenerUbicacion:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.523);
+    transform: translateY(-5px);
+  }
 }
+
 
