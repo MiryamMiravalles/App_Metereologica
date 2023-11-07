@@ -10,8 +10,7 @@ boton.addEventListener("click", function () {
         // La latitud y longitud están disponibles en position.coords.latitude y position.coords.longitude
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        console.log(latitude);
-        console.log(longitude);
+        console.log(latitude, longitude);
         localStorage.setItem("latitude", latitude);
         localStorage.setItem("longitude", longitude);
       },
@@ -30,7 +29,6 @@ boton.addEventListener("click", function () {
 
 // Para que recuerde la configuración de los efectos del botón
 // Obtener el botón y el cursor del elemento del DOM
-const obtenerUbicacion = document.getElementById("obtenerUbicacion");
 const cursorSetting = localStorage.getItem("cursorSetting");
 
 // Función para cambiar el cursor y guardar la configuración

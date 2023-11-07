@@ -87,52 +87,52 @@ fetch(apiUrl)
 
     switch (siguientesCodigos[0]) {
       case 0:
-        img1.src = "/img/sol.png";
+        img1.src = "./img/sol.png";
         break;
       case 1:
       case 2:
       case 3:
       case 45:
       case 48:
-        img1.src = "/img/cloud.png";
+        img1.src = "./img/cloud.png";
         break;
     }
     if (siguientesCodigos[0] > 48) {
-      img1.src = "/img/lluvia.png";
+      img1.src = "./img/lluvia.png";
     }
     switch (siguientesCodigos[1]) {
       case 0:
-        img2.src = "/img/sol.png";
+        img2.src = "./img/sol.png";
         break;
       case 1:
       case 2:
       case 3:
       case 45:
       case 48:
-        img2.src = "/img/cloud.png";
+        img2.src = "./img/cloud.png";
         break;
     }
     if (siguientesCodigos[1] > 48) {
-      img2.src = "/img/lluvia.png";
+      img2.src = "./img/lluvia.png";
     }
     switch (siguientesCodigos[2]) {
       case 0:
-        img3.src = "/img/sol.png";
+        img3.src = "./img/sol.png";
         break;
       case 1:
       case 2:
       case 3:
       case 45:
       case 48:
-        img3.src = "/img/cloud.png";
+        img3.src = "./img/cloud.png";
         break;
     }
     if (siguientesCodigos[2] > 48) {
-      img3.src = "/img/lluvia.png";
+      img3.src = "./img/lluvia.png";
     }
     switch (siguientesCodigos[3]) {
       case 0:
-        img4.src = "/img/sol.png";
+        img4.src = "./img/sol.png";
         break;
       case 1:
       case 2:
@@ -143,65 +143,65 @@ fetch(apiUrl)
         break;
     }
     if (siguientesCodigos[3] > 48) {
-      img4.src = "/img/lluvia.png";
+      img4.src = "./img/lluvia.png";
     }
     switch (siguientesCodigos[4]) {
       case 0:
-        img5.src = "/img/sol.png";
+        img5.src = "./img/sol.png";
         break;
       case 1:
       case 2:
       case 45:
       case 48:
-        img5.src = "/img/cloud.png";
+        img5.src = "./img/cloud.png";
         break;
     }
     if (siguientesCodigos[4] > 48) {
-      img5.src = "/img/lluvia.png";
+      img5.src = "./img/lluvia.png";
     }
     switch (siguientesCodigos[5]) {
       case 0:
-        img6.src = "/img/sol.png";
+        img6.src = "./img/sol.png";
         break;
       case 1:
       case 2:
       case 3:
       case 45:
       case 48:
-        img6.src = "/img/cloud.png";
+        img6.src = "./img/cloud.png";
         break;
     }
     if (siguientesCodigos[5] > 48) {
-      img6.src = "/img/lluvia.png";
+      img6.src = "./img/lluvia.png";
     }
     switch (siguientesCodigos[6]) {
       case 0:
-        img7.src = "/img/sol.png";
+        img7.src = "./img/sol.png";
         break;
       case 1:
       case 2:
       case 3:
       case 45:
       case 48:
-        img7.src = "/img/cloud.png";
+        img7.src = "./img/cloud.png";
         break;
     }
     if (siguientesCodigos[6] > 48) {
-      img7.src = "/img/lluvia.png";
+      img7.src = "./img/lluvia.png";
     }
     switch (siguientesCodigos[7]) {
       case 0:
-        img8.src = "/img/sol.png";
+        img8.src = "./img/sol.png";
         break;
       case 1:
       case 2:
       case 45:
       case 48:
-        img8.src = "/img/cloud.png";
+        img8.src = "./img/cloud.png";
         break;
     }
     if (siguientesCodigos[7] > 48) {
-      img8.src = "/img/lluvia.png";
+      img8.src = "./img/lluvia.png";
     }
   })
   .catch((error) => {
