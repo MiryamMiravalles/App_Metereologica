@@ -1,8 +1,8 @@
 "use strict";
-
+const latitude = localStorage.getItem("latitude");
+const longitude = localStorage.getItem("longitude");
 // URL de la API que deseas consultar
-const apiUrl =
-  "https://api.open-meteo.com/v1/forecast?latitude=39.2&longitude=-0.3333&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&forecast_days=1";
+const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&forecast_days=1`;
 
 // Realiza una solicitud GET a la API utilizando fetch
 fetch(apiUrl)
@@ -16,8 +16,6 @@ fetch(apiUrl)
   })
   .then((data) => {
     // Trabaja con los datos recibidos de la API
-    data.latitude = localStorage.getItem("latitude");
-    data.longitude = localStorage.getItem("longitude");
     const fechaActual = new Date();
     console.log(data);
     const hora = fechaActual.getHours();
