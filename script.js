@@ -1,8 +1,7 @@
 "use strict";
-const latitude = localStorage.getItem("latitude");
-const longitude = localStorage.getItem("longitude");
 // URL de la API que deseas consultar
-const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&forecast_days=1`;
+const apiUrl =
+  "https://api.open-meteo.com/v1/forecast?latitude=39.2&longitude=-0.3333&hourly=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&forecast_days=1";
 
 // Realiza una solicitud GET a la API utilizando fetch
 fetch(apiUrl)
@@ -16,8 +15,10 @@ fetch(apiUrl)
   })
   .then((data) => {
     // Trabaja con los datos recibidos de la API
+    data.latitude = localStorage.getItem("latitude");
+    data.longitude = localStorage.getItem("longitude");
     const fechaActual = new Date();
-    console.log(data);
+       console.log(data);
     const hora = fechaActual.getHours();
     const temp = document.querySelector(".temperatura");
     temp.textContent = `${parseInt(data.hourly.temperature_2m[hora])}ºc`;
@@ -34,13 +35,29 @@ fetch(apiUrl)
       0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
       21, 22, 23,
     ];
-    const cantidad = 9;
+
     var siguientesHoras = [];
-    for (var i = 0; i < cantidad; i++) {
+    for (let i = 0; i < 8; i++) {
       let indice = (hora + i) % horas.length;
       siguientesHoras.push(horas[indice]);
-      let code = codigos.length;
-      siguientesCodigos.push(codigos[indice]);
+      const time = document.querySelector(`.time${i +1}`);
+      time.textContent = `${horas[indice]}:00 ${mañTar(horas[indice])}`;
+      const img = document.querySelector(`.img${i + 1}`);
+    switch (codigos[indice]) {
+      case 0:
+        img.setAttribute ("src", "./img/sol.png");
+        break;
+      case 1:
+      case 2:
+      case 3:
+      case 45:
+      case 48:
+        img.setAttribute ("src", "./img/cloud.png");
+        break;
+    }
+    if (codigos[indice] > 48) {
+      img.setAttribute ("src", "./img/lluvia.png");
+    }
     }
     const estaHora = document.querySelector(".time1");
     const estaHora1 = document.querySelector(".time2");
@@ -51,30 +68,14 @@ fetch(apiUrl)
     const estaHora6 = document.querySelector(".time7");
     const estaHora7 = document.querySelector(".time8");
 
-    estaHora.textContent = `${siguientesHoras[1]}:00 ${mañTar(
-      siguientesHoras[1]
-    )}`;
-    estaHora1.textContent = `${siguientesHoras[2]}:00 ${mañTar(
-      siguientesHoras[2]
-    )}`;
-    estaHora2.textContent = `${siguientesHoras[3]}:00 ${mañTar(
-      siguientesHoras[3]
-    )}`;
-    estaHora3.textContent = `${siguientesHoras[4]}:00 ${mañTar(
-      siguientesHoras[4]
-    )}`;
-    estaHora4.textContent = `${siguientesHoras[5]}:00 ${mañTar(
-      siguientesHoras[5]
-    )}`;
-    estaHora5.textContent = `${siguientesHoras[6]}:00 ${mañTar(
-      siguientesHoras[6]
-    )}`;
-    estaHora6.textContent = `${siguientesHoras[7]}:00 ${mañTar(
-      siguientesHoras[7]
-    )}`;
-    estaHora7.textContent = `${siguientesHoras[8]}:00 ${mañTar(
-      siguientesHoras[8]
-    )}`;
+    estaHora.textContent = `${siguientesHoras[0]}:00 ${mañTar(siguientesHoras[0])}`;
+    estaHora1.textContent = `${siguientesHoras[1]}:00 ${mañTar(siguientesHoras[1])}`;
+    estaHora2.textContent = `${siguientesHoras[2]}:00 ${mañTar(siguientesHoras[2])}`;
+    estaHora3.textContent = `${siguientesHoras[3]}:00 ${mañTar(siguientesHoras[3])}`;
+    estaHora4.textContent = `${siguientesHoras[4]}:00 ${mañTar(siguientesHoras[4])}`;
+    estaHora5.textContent = `${siguientesHoras[5]}:00 ${mañTar(siguientesHoras[5])}`;
+    estaHora6.textContent = `${siguientesHoras[6]}:00 ${mañTar(siguientesHoras[6])}`;
+    estaHora7.textContent = `${siguientesHoras[7]}:00 ${mañTar(siguientesHoras[7])}`;
 
     const img1 = document.querySelector(".img1");
     const img2 = document.querySelector(".img2");
@@ -207,4 +208,24 @@ fetch(apiUrl)
   .catch((error) => {
     // Manejo de errores
     console.error("Ocurrió un error al consultar la API:", error);
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const imagesWithAlt = [
+      { class: "img1", alt: "Imagen 1" },
+      { class: "img2", alt: "Imagen 2" },
+      { class: "img3", alt: "Imagen 3" },
+      { class: "img4", alt: "Imagen 4" },
+      { class: "img5", alt: "Imagen 5" },
+      { class: "img6", alt: "Imagen 6" },
+      { class: "img7", alt: "Imagen 7" },
+      { class: "img8", alt: "Imagen 8" },
+    ];
+
+    imagesWithAlt.forEach((imageObj) => {
+      const imgElement = document.querySelector(`.imglluvia.${imageObj.class}`);
+      if(imgElement) {
+        imgElement.alt =imageObj.alt;
+      }
+    });
   });
